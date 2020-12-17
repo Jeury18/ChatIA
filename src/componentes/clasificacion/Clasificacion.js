@@ -9,3 +9,5 @@ export const Clasificacion = (user) => {
 
   return classifier.classify(user);
 };
+
+export default Clasificacion;

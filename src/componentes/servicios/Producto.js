@@ -1,7 +1,14 @@
 import React, { memo } from "react";
-import Button from 'react-bootstrap/Button';
+
+import Renderizar from '../servicios/Renderizar';
+import { Link } from "react-router-dom";
 
 export const Producto = memo(({ title, img, precio }) => {
+
+const  Compra = (params) => {
+   alert('Felicidades se vendio');
+}
+
   return (
     <div className="card" style={{ width: '100%', backgroundColor:'#97dba4' }}>
       <h4 className="card-header">{title}</h4>
@@ -9,7 +16,9 @@ export const Producto = memo(({ title, img, precio }) => {
       <div className="card-body">
         <img src={img} style={{ width: '50%' }}  className="card-img" alt={title} />
       </div>
-      <Button style={{ width: '50%', backgroundColor:'#f2d024' }} variant="warning">Comprar</Button>
+      <input type="text"></input>
+      <button style={{ width: '50%', backgroundColor:'#f2d024' }} variant="warning" onClick={()=>Compra()} >Comprar</button>
+      
     </div>
   );
 });

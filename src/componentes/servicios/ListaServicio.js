@@ -1,6 +1,6 @@
 import React, { memo } from "react";
-import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap/Button';
+
+
 
 
 export const ListaServicio =  memo(({ title, img }) => {

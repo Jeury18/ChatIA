@@ -7,6 +7,8 @@ import Servicios from '../servicios/Servicios';
 import PrecioServicio from '../servicios/PrecioServicio';
 import ListaPrecio from '../servicios/ListaPrecio';
 import CompraProducto from '../servicios/CompraProducto';
+import Clasificacion from '../clasificacion/Clasificacion';
+
 
 const theme  ={
   background: "#F5F6F2",
@@ -46,13 +48,13 @@ class SimpleForm extends Component {
         {
           id: "1",
           message: `Hola! Profe Tomas, ¡Tenemos los siguientes servicios para usted!`,
-          trigger: "sugerencias",
-          //trigger: "usuario",
+          //trigger: "sugerencias",
+          trigger: "usuario",
         },
         {
           id: "usuario",
           user: true,
-          trigger: ({ value, steps }) => 'servicio',
+          trigger: ({ value, steps }) => Clasificacion(value),
         },
         {
           id: "servicio",
