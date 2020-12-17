@@ -6,14 +6,14 @@ export const Login = () => {
 
 const handleLogin = 0;
 const password = 0;
-const cedula=0;
+const cedula="portorrealjeuri@gmail.com";
 const handleInputChange=0;
     return (
         
         <div className="container login-container">
         <div className="row">
           <div className="col-md-6 login-form-1">
-            <h3>LOGIN</h3>
+            <h3>CORREO</h3>
             <form onSubmit={handleLogin}>
               <div className="form-group">
                 <input
@@ -25,30 +25,15 @@ const handleInputChange=0;
                   onChange={handleInputChange}
                 />
               </div>
-              <div className="form-group">
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Your Password *"
-                  name="password"
-                  value={password}
-                  onChange={handleInputChange}
-                />
-              </div>
+              
               <div className="form-group mt-4">
                 <input type="submit" className="btnSubmit" value="Login" />
               </div>
-              <div className="form-group">
-                  
-                <a to="#" className="ForgetPwd">
-                  Forget Password?
-                  </a>
-                
-              </div>
+              
             </form>
           </div>
           <div className="col-md-6 login-form-2 container">
-            <h3>BIENVENIDO!!</h3>
+            <h3>CHATBOT 🤖</h3>
           </div>
         </div>
       </div>
