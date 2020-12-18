@@ -1,10 +1,9 @@
 import React, { memo } from "react";
 import { useFetch } from "../Fetch/useFetch";
-import { ListaPrecio } from "../servicios/ListaPrecio";
 import Producto from '../servicios/Producto';
 
 const PrecioServicio = memo(() => {
-  const url = `https://pruebachatbots.herokuapp.com/api/precio`;
+  const url = `http://localhost:5660/api/producto`;
  const { loading, data } = useFetch(url);
  
   return (
@@ -19,21 +18,24 @@ const PrecioServicio = memo(() => {
           <span className="sr-only">Loading...</span>
         </div>
       </div>
-      ) : data.data.length ? (
+      ) : data.length ? (
         <ul className="list-group list-group-flush">
           <li key="servicios" className="list-group-item">
             <h3>Comprar producto</h3>
           </li>
-          {data.data.map((v) => {
+          {data.map((v) => {
             const {
-              id,
               precio,
-              servicio: { descripcion, img },
+              nombre,
+               img,
+               cantidad
             } = v;
             return (
-              <li key={id} className="list-group-item">
+              <li key={v._id} className="list-group-item">
                 <Producto
-                  title={descripcion}
+                  id={v._id}
+                  title={nombre}
+                  cantidadPro={cantidad}
                   img={img}
                   precio={precio}
                 />

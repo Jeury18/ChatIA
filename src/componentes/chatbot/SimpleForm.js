@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import ChatBot from 'react-simple-chatbot';
 import {ThemeProvider} from 'styled-components';
-import Post from './Post';
-import ListaServicio from '../servicios/ListaServicio';
-import Servicios from '../servicios/Servicios';
 import PrecioServicio from '../servicios/PrecioServicio';
-import ListaPrecio from '../servicios/ListaPrecio';
 import CompraProducto from '../servicios/CompraProducto';
 import Clasificacion from '../clasificacion/Clasificacion';
+import StatusCarta from '../servicios/StatusCarta';
 
 
 const theme  ={
@@ -47,8 +44,7 @@ class SimpleForm extends Component {
        steps={[
         {
           id: "1",
-          message: `Hola! Profe Tomas, ¡Tenemos los siguientes servicios para usted!`,
-          //trigger: "sugerencias",
+          message: `Hola, ¿En que podemos ayudarlo?`,
           trigger: "usuario",
         },
         {
@@ -57,19 +53,19 @@ class SimpleForm extends Component {
           trigger: ({ value, steps }) => Clasificacion(value),
         },
         {
-          id: "servicio",
-          component: <Servicios />,
-          trigger: "sugerencia2",
+          id: "status",
+          component: <StatusCarta />,
+          trigger: "asistente",
         },
         {
           id: "precio-servicios",
           component: <PrecioServicio/>,
-          trigger: "sugerencia2",
+          trigger: "asistente",
         },
         {
           id: "comprar",
           component: <CompraProducto />,
-          trigger: "sugerencia2",
+          trigger: "asistente",
         },
         {
           id: "no-existe",
@@ -86,7 +82,7 @@ class SimpleForm extends Component {
         {
           id: "sugerencias",
           options: [
-            { value: 1, label: "Información sobre el producto", trigger: "servicio" },
+            { value: 1, label: "Status de mis compras", trigger: "status" },
             { value: 2, label: "Precio de los servicios", trigger: "precio-servicios" },
             { value: 3, label: "comprar el producto", trigger: "comprar" },
             { value: 4, label: "Deseas algo mas?", trigger: "pregunta" },
@@ -94,7 +90,7 @@ class SimpleForm extends Component {
           ],
         },
         {
-          id: "sugerencia2",
+          id: "asistente",
           message: "En que otra cosa le puedo ayudar?",
           trigger: "usuario",
         },

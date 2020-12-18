@@ -13,7 +13,7 @@ const handleInputChange=0;
         <div className="container login-container">
         <div className="row">
           <div className="col-md-6 login-form-1">
-            <h3>CORREO</h3>
+            <h3>LOGIN</h3>
             <form onSubmit={handleLogin}>
               <div className="form-group">
                 <input

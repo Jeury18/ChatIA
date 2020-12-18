@@ -1,12 +1,10 @@
 import React, { memo } from "react";
 import { useFetch } from "../Fetch/useFetch";
-import { ListaServicio } from "./ListaServicio";
-import Json from '../servicios/Json';
+import { StatusCompra } from "./StatusCompra";
 
-const Servicios = memo(() => {
- const url = `https://pruebachatbots.herokuapp.com/api/servicio`;
+const StatusCarta = memo(() => {
+ const url = `http://localhost:5660/api/reserva`;
   const { loading, data } = useFetch(url);
-//const {loading, data} = fetch(Json);
   return (
     <>
       {loading ? (
@@ -15,20 +13,18 @@ const Servicios = memo(() => {
           <span className="sr-only">Loading...</span>
         </div>
       </div>
-      ) : data.data.length ? (
+      ) : data.length ? (
         <ul className="list-group list-group-flush">
           <li key="servicios" className="list-group-item">
-            <h3>Información sobre el producto</h3>
+            <h3>Estatus de la entrega</h3>
           </li>
 
-          {data.data[0].tipo_vs_servicios.map((v) => {
-            const {
-              servicio: { id, descripcion, img },
-            } = v;
+          {data.map((v) => {
+           
 
             return (
-              <li key={id} className="list-group-item">
-                <ListaServicio title={descripcion} img={img} />
+              <li key={v._id} className="list-group-item">
+                <StatusCompra title={v.id_producto.nombre} id={v._id} img={v.id_producto.img} precio={v.precio} cantidad={v.cantidad} />
               </li>
             );
           })}
@@ -44,4 +40,4 @@ const Servicios = memo(() => {
   );
 });
 
-export default Servicios;
+export default StatusCarta;
