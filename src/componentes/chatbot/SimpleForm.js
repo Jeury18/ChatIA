@@ -5,6 +5,8 @@ import PrecioServicio from '../servicios/PrecioServicio';
 import CompraProducto from '../servicios/CompraProducto';
 import Clasificacion from '../clasificacion/Clasificacion';
 import StatusCarta from '../servicios/StatusCarta';
+import Ubicacion from '../servicios/ubicacion';
+
 
 
 const theme  ={
@@ -37,7 +39,6 @@ class SimpleForm extends Component {
        placeholder="Escriba su mensaje"
        botAvatar="https://blog.jumia.com.ng/wp-content/uploads/2017/09/Jumia_Bot_Logo_Right-1.png"
        userAvatar="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
-       recognitionEnable={true}
        recognitionLang="es"
 
 
@@ -68,7 +69,7 @@ class SimpleForm extends Component {
           trigger: "asistente",
         },
         {
-          id: "no-existe",
+          id: "sin-respuesta",
           message:
             "La pregunta no es entendible para el asistente virtual, favor escribanos al correo: watchstore@gmail.com",
           trigger: "consultar",
@@ -83,15 +84,15 @@ class SimpleForm extends Component {
           id: "sugerencias",
           options: [
             { value: 1, label: "Status de mis compras", trigger: "status" },
-            { value: 2, label: "Precio de los servicios", trigger: "precio-servicios" },
+            { value: 2, label: "Precio de los reloj", trigger: "precio-servicios" },
             { value: 3, label: "comprar el producto", trigger: "comprar" },
-            { value: 4, label: "Deseas algo mas?", trigger: "pregunta" },
-            { value: 5, label: "Terminar conversacion", trigger: "terminar" },
+            { value: 4, label: "¿Deseas algo mas?", trigger: "pregunta" },
+            { value: 5, label: "¿Cual es su ubicacion?", trigger: "ubicacion" },
           ],
         },
         {
           id: "asistente",
-          message: "En que otra cosa le puedo ayudar?",
+          message: "¿En que otra cosa le puedo ayudar?",
           trigger: "usuario",
         },
         {
@@ -100,8 +101,13 @@ class SimpleForm extends Component {
           trigger: "usuario",
         },
         {
+          id: "ubicacion",
+          component: <Ubicacion />,
+          trigger: "usuario",
+        },
+        {
           id: "terminar",
-          message: "Hasta pronto!",
+          message: "Hasta pronto.",
           end: true,
         },
       ]}

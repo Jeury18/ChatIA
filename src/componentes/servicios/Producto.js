@@ -40,17 +40,24 @@ setCantidadDisponible(cantidaDisponible-cantidad)
 
 
   return (
-    <div className="card" style={{ width: '100%', backgroundColor:'#97dba4' }}>
-      <h4 className="card-header">{title}</h4>
-      <h5 className="card-header">Precio: {precio}</h5>
-      <h5 className="card-header">Stock: {cantidaDisponible}</h5>
-      <div className="card-body">
-        <img src={img} style={{ width: '50%' }}  className="card-img" alt={title} />
-      </div>
-      Cantidad:<input value={cantidad} min="1" max={cantidaDisponible} onChange={handleChange}  type="number"></input>
-      <button style={{ width: '50%', backgroundColor:'#f2d024' }} variant="warning" onClick={Compra} >Comprar</button>
-      
+
+    <div className="card" style={{ width: '100%', backgroundColor:'#ebeded', borderRadius: '15px' }}>
+    <h4 style={{ marginTop:'20px', paddingTop:'14px' }} className="card-header">{title}</h4>
+    <h5 className="card-header">Precio: {precio}</h5>
+    <h5 className="card-header">Cantidad: {cantidaDisponible}</h5>
+
+    <div className="card-body">
+      <img src={img} style={{ width: '50%', paddingBottom:'15px' }}  className="card-img" alt={title} />
     </div>
+
+    {cantidaDisponible>0 ? ( <div> Cantidad:<input value={cantidad} min="1" max={cantidaDisponible} onChange={handleChange}  type="number"></input>
+      <button style={{ width: '50%', backgroundColor:'#f2d024' }} variant="warning" onClick={Compra} >Comprar</button>
+    </div>) : 
+      <button style={{ width: '50%', backgroundColor:'#f2d024' }} variant="warning" >NO DISPONIBLE</button>
+  }
+    </div>
+     
+
   );
 });
 export default Producto;

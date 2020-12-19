@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <header className="App-header">
        WatchStore | ChatBot
-       <Login/>
+       {/* <Login/> */}
       </header>
       
       <SimpleForm/> 

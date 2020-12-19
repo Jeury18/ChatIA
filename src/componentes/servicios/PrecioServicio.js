@@ -20,9 +20,7 @@ const PrecioServicio = memo(() => {
       </div>
       ) : data.length ? (
         <ul className="list-group list-group-flush">
-          <li key="servicios" className="list-group-item">
             <h3>Precio de los servicio</h3>
-          </li>
           {data.map((v) => {
             const {
               cantidad,

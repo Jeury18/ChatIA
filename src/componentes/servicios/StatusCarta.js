@@ -20,7 +20,6 @@ const StatusCarta = memo(() => {
           </li>
 
           {data.map((v) => {
-           
 
             return (
               <li key={v._id} className="list-group-item">
@@ -32,7 +31,7 @@ const StatusCarta = memo(() => {
       ) : (
         <ul className="list-group list-group-flush">
           <li key="servicios" className="list-group-item">
-            <h3>No hay servicios disponibles</h3>
+            <h3>No tiene pedidos en espera</h3>
           </li>
         </ul>
       )}
